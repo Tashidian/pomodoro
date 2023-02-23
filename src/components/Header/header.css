@@ -1,0 +1,5 @@
+.header {
+  padding: 40px 0;
+  border-bottom: 2px solid var(--blackish);
+  background-color: var(--yellow-primary);
+}
