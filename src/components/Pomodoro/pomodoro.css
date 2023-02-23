@@ -1,4 +1,4 @@
-.wrapper {
+.pomodoro {
   background-color: var(--yellow-primary);
   color: var(--blackish);
   display: flex;
@@ -6,4 +6,12 @@
   align-items: stretch;
   justify-content: flex-start;
   min-height: 100vh;
+}
+
+.pomodoro .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
