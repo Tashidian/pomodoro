@@ -1,0 +1,26 @@
+.counter {
+  width: 100%;
+  text-align: center;
+}
+
+.counter__clock {
+  margin-bottom: 40px;
+  font-size: 8rem;
+  line-height: 8.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.counter__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.counter__buttons .btn {
+  flex: 1;
+}
+
+.counter__buttons .btn + .btn {
+  margin-left: 20px;
+}
