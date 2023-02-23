@@ -1,0 +1,163 @@
+:root {
+  --yellow-primary: #FFFF38;
+  --blackish: #333333;
+
+  --font-primary: "Montserrat";
+}
+
+/* -------- FONTS -------- */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../../public/fonts/Montserrat-Regular.ttf");
+  src: url("../../../public/fonts/Montserrat-Regular.ttf");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../../../public/fonts/Montserrat-Medium.ttf");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../../../public/fonts/Montserrat-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../../public/fonts/Montserrat-Bold.ttf");
+}
+
+html {
+  font-size:62.5%;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: 1.6rem;
+  line-height: 1.4em;
+}
+
+/* -------- GENERAL --------- */
+
+a {
+  color: inherit;
+  position: relative;
+  text-decoration: none;
+}
+
+a:hover, a:visited, a:focus {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/* -------- TITLES --------- */
+
+.h1 {
+  font-size: 4rem;
+  line-height: 4.4rem;
+  font-weight: 700;
+}
+
+.h2 {
+  font-size: 3rem;
+  line-height: 3.4rem;
+  font-weight: 600;
+}
+
+.h3 {
+  font-size: 2.4rem;
+  line-height: 3rem;
+  font-weight: 600;
+}
+
+.h4 {
+  font-size: 2rem;
+  line-height: 2.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* -------- BUTTONS --------- */
+.btn {
+  display: inline-block;
+  min-height: 60px;
+  padding: 20px;
+  border: none;
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  appearance: none;
+}
+
+.btn.btn--primary {
+  background-color: var(--yellow-primary);
+  color: var(--blackish);
+}
+
+.btn.btn--secondary {
+  background-color: var(--blackish);
+  color: var(--yellow-primary);
+}
+
+/* -------- HELPERS --------- */
+.no-scroll {
+  overflow: hidden;
+  position: relative;
+}
+
+.bg-mask-black {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  transition: 0.2s;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9;
+}
+
+.bg-mask-black.visible {
+  display: block;
+}
+
+/* -------- MARGINS --------- */
+
+.mb-40 {
+  margin-bottom: 40px;
+}
