@@ -1,0 +1,26 @@
+.btn {
+  display: inline-block;
+  min-height: 60px;
+  padding: 20px;
+  border: none;
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  appearance: none;
+}
+
+.btn.btn--primary {
+  background-color: var(--yellow-primary);
+  color: var(--blackish);
+}
+
+.btn.btn--primary.btn--pomodoro {
+  border: 2px solid var(--blackish)
+}
+
+.btn.btn--secondary {
+  background-color: var(--blackish);
+  color: var(--yellow-primary);
+}
