@@ -11,6 +11,10 @@
   letter-spacing: 0.03em;
 }
 
+.counter__clock__seconds {
+  font-size: 6rem;
+}
+
 .counter__buttons {
   display: flex;
   justify-content: center;
