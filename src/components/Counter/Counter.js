@@ -14,23 +14,27 @@ function Counter(props) {
 
   const [clockMinutes, setClockMinutes] = useState(workMinutes)
   const [clockSeconds, setClockSeconds] = useState(0)
-  const [pomState, setPomState] = useState({ isRuning: false, statusText: 'WORK' })
+  const [pomState, setPomState] = useState({ isRuning: false, isPaused: false, statusText: 'WORK' })
   const [pomHistory, setPomHistory] = useState([])
 
   const startButtonClick = () => {
     if (!pomState.isRuning) {
-      setPomState({ ...pomState, isRuning: true })
+      setPomState({ ...pomState, isRuning: true, isPaused: false })
 
-      if (pomHistory.length > 0) {
-        if (pomHistory[pomHistory.length - 1] === 1) {
-          (((pomHistory.length + 1) / 2) % pomTimes === 0) ? setPomHistory([...pomHistory, 3]) : setPomHistory([...pomHistory, 2])
+      if (!pomState.isPaused) {
+        if (pomHistory.length > 0) {
+          if (pomHistory[pomHistory.length - 1] === 1) {
+            (((pomHistory.length + 1) / 2) % pomTimes === 0) ? setPomHistory([...pomHistory, 3]) : setPomHistory([...pomHistory, 2])
+          }
+          if (pomHistory[pomHistory.length - 1] === 2 || pomHistory[pomHistory.length - 1] === 3) {
+            setPomHistory([...pomHistory, 1])
+          }
+        } else {
+          setPomHistory([1])
         }
-        if (pomHistory[pomHistory.length - 1] === 2 || pomHistory[pomHistory.length - 1] === 3) {
-          setPomHistory([...pomHistory, 1])
-        }
-      } else {
-        setPomHistory([1])
       }
+    } else {
+      setPomState({ ...pomState, isRuning: false, isPaused: true })
     }
   }
 
@@ -73,7 +77,7 @@ function Counter(props) {
   const resetButtonClick = () => {
     setClockMinutes(workMinutes)
     setClockSeconds(0)
-    setPomState({ isRuning: false, statusText: 'WORK' })
+    setPomState({ isRuning: false, isPaused: false, statusText: 'WORK' })
     setPomHistory([])
   }
 
@@ -93,7 +97,7 @@ function Counter(props) {
         </div>
 
         <div className="counter__buttons">
-          <Button type="button" typeAtt="button" css="btn--primary btn--pomodoro" onclick={startButtonClick}>Start</Button>
+          <Button type="button" typeAtt="button" css="btn--primary btn--pomodoro" onclick={startButtonClick}>{(pomState.isPaused || !pomState.isRuning) ? 'Play' : 'Pause'}</Button>
           <Button type="button" typeAtt="button" css="btn--secondary" onclick={resetButtonClick}>Reset</Button>
         </div>
       </div>
