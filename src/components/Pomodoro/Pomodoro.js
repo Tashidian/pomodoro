@@ -5,14 +5,14 @@ import Header from '../Header/Header'
 import './pomodoro.css'
 
 function Pomodoro() {
-  const [counterOptions, setCounterOptions] = useState({workMinutes: 25, restMinutes: 5, pomTimes: 4, pomRestMinutes: 30})
+  const [counterOptions, setCounterOptions] = useState({workMinutes: 2, shortBreakMinutes: 1, longBreakMinutes: 3, pomTimes: 4})
 
   return (
     <div className="pomodoro">
       <Header />
 
       <main className="main">
-        <Counter workMinutes={counterOptions.workMinutes} restMinutes={counterOptions.restMinutes} pomTimes={counterOptions.pomTimes} pomRestMinutes={counterOptions.pomRestMinutes} />
+        <Counter workMinutes={counterOptions.workMinutes} shortBreakMinutes={counterOptions.shortBreakMinutes} longBreakMinutes={counterOptions.longBreakMinutes} pomTimes={counterOptions.pomTimes} />
       </main>
 
       <Footer />
