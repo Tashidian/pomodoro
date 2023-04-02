@@ -1,6 +1,7 @@
 :root {
   --yellow-primary: #FFFF38;
   --blackish: #333333;
+  --blackish-opacity: rgba(51, 51, 51, 0.5);
 
   --font-primary: "Montserrat";
 }
