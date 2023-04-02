@@ -97,8 +97,16 @@ function Counter(props) {
         </div>
 
         <div className="counter__buttons">
-          <Button type="button" typeAtt="button" css="btn--primary btn--pomodoro" onclick={startButtonClick}>{(pomState.isPaused || !pomState.isRuning) ? 'Play' : 'Pause'}</Button>
-          <Button type="button" typeAtt="button" css="btn--secondary" onclick={resetButtonClick}>Reset</Button>
+          <Button type="button" typeAtt="button" css="btn--primary btn--pomodoro" onclick={startButtonClick}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+              {(pomState.isPaused || !pomState.isRuning) ? <use xlinkHref="svg/sprite.svg#play" /> : <use xlinkHref="svg/sprite.svg#pause" />}
+            </svg>
+          </Button>
+          <Button type="button" typeAtt="button" css="btn--secondary" onclick={resetButtonClick}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+              <use xlinkHref="svg/sprite.svg#stop" />
+            </svg>
+          </Button>
         </div>
       </div>
     </div>
