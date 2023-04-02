@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Alert from '../Alert/Alert'
 import Button from '../Button/Button'
 import './counter.css'
 
@@ -16,6 +17,7 @@ function Counter(props) {
   const [clockSeconds, setClockSeconds] = useState(0)
   const [pomState, setPomState] = useState({ isRuning: false, isPaused: false, statusText: 'WORK' })
   const [pomHistory, setPomHistory] = useState([])
+  const [alertMessage, setAlertMessage] = useState(null)
 
   const startButtonClick = () => {
     if (!pomState.isRuning) {
@@ -44,23 +46,26 @@ function Counter(props) {
       intervalo = setInterval(() => {
         if (clockSeconds === 0) {
           if (clockMinutes === 0) {
-            alert('tiempo!')
             clearInterval(intervalo)
 
             if (pomHistory[pomHistory.length - 1] === 1) {
               if (((pomHistory.length + 1) / 2) % pomTimes === 0) {
                 setClockMinutes(longBreakMinutes)
+                setAlertMessage('Tiempo! Toca descanso largo')
                 setPomState({ statusText: 'LONG BREAK', isRuning: false })
               } else {
                 setClockMinutes(shortBreakMinutes)
+                setAlertMessage('Tiempo! Toca descanso corto')
                 setPomState({ statusText: 'SHORT BREAK', isRuning: false })
               }
             }
             if (pomHistory[pomHistory.length - 1] === 2 || pomHistory[pomHistory.length - 1] === 3) {
               setClockMinutes(workMinutes)
+              setAlertMessage('Tiempo! Toca trabajar')
               setPomState({ statusText: 'WORK', isRuning: false })
             }
           } else {
+            alertMessage && setAlertMessage(null)
             setClockMinutes(clockMinutes - 1)
             setClockSeconds(59)
           }
@@ -84,6 +89,9 @@ function Counter(props) {
   return (
     <div className="container">
       <div className="counter">
+        {alertMessage &&
+          <Alert message={alertMessage} />
+        }
         <div className="counter__stage">
           <span className="h2">{pomState.statusText}</span>
         </div>
