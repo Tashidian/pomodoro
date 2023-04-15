@@ -90,7 +90,7 @@ function Counter(props) {
     <div className="container">
       <div className="counter">
         {alertMessage &&
-          <Alert message={alertMessage} />
+          <Alert message={alertMessage} sound={true} />
         }
         <div className="counter__stage">
           <span className="h2">{pomState.statusText}</span>

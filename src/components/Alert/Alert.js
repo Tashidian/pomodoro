@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './alert.css'
 
 function Alert(props) {
-  const { message, close = () => {} } = props
+  const { message, sound = false, close = () => {} } = props
 
   const [isClosed, setIsClosed] = useState(true)
 
@@ -23,6 +23,12 @@ function Alert(props) {
       <div className="alert__content">
         <p className="h3">{message}</p>
       </div>
+        {sound &&
+          <audio autoPlay={true}>
+            <source src="sound/strange-notification.mp3" type="audio/mpeg" />
+            Tu navegador no soporta el elemento de audio.
+          </audio>
+        }
     </div>
   )
 }
