@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Alert from '../Alert/Alert'
 import Button from '../Button/Button'
 import Icon from '../Icon/Icon'
@@ -20,7 +20,7 @@ function Counter(props) {
   const [pomHistory, setPomHistory] = useState([])
   const [alertMessage, setAlertMessage] = useState(null)
 
-  const startButtonClick = () => {
+  const startPauseButtonClick = useCallback(() => {
     if (!pomState.isRuning) {
       setPomState({ ...pomState, isRuning: true, isPaused: false })
 
@@ -39,7 +39,14 @@ function Counter(props) {
     } else {
       setPomState({ ...pomState, isRuning: false, isPaused: true })
     }
-  }
+  }, [pomState, pomHistory, pomTimes])
+
+  const resetButtonClick = useCallback(() => {
+    setClockMinutes(workMinutes)
+    setClockSeconds(0)
+    setPomState({ isRuning: false, isPaused: false, statusText: 'WORK' })
+    setPomHistory([])
+  }, [workMinutes])
 
   useEffect(() => {
     let counterInterval = 0
@@ -80,13 +87,6 @@ function Counter(props) {
     }
   })
 
-  const resetButtonClick = () => {
-    setClockMinutes(workMinutes)
-    setClockSeconds(0)
-    setPomState({ isRuning: false, isPaused: false, statusText: 'WORK' })
-    setPomHistory([])
-  }
-
   return (
     <div className="container">
       <div className="counter">
@@ -106,7 +106,7 @@ function Counter(props) {
         </div>
 
         <div className="counter__buttons">
-          <Button type="button" typeAtt="button" css="btn--primary btn--pomodoro" onclick={startButtonClick}>
+          <Button type="button" typeAtt="button" css="btn--primary btn--pomodoro" onclick={startPauseButtonClick}>
             <Icon id={(pomState.isPaused || !pomState.isRuning) ? 'play' : 'pause'} width="50" height="50" />
           </Button>
           <Button type="button" typeAtt="button" css="btn--secondary" onclick={resetButtonClick}>
