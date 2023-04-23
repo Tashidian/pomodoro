@@ -41,12 +41,12 @@ function Counter(props) {
   }
 
   useEffect(() => {
-    let intervalo = 0
+    let counterInterval = 0
     if (pomState.isRuning) {
-      intervalo = setInterval(() => {
+      counterInterval = setInterval(() => {
         if (clockSeconds === 0) {
           if (clockMinutes === 0) {
-            clearInterval(intervalo)
+            clearInterval(counterInterval)
 
             if (pomHistory[pomHistory.length - 1] === 1) {
               if (((pomHistory.length + 1) / 2) % pomTimes === 0) {
@@ -75,7 +75,7 @@ function Counter(props) {
       }, 1000)
     }
     return () => {
-      clearInterval(intervalo)
+      clearInterval(counterInterval)
     }
   })
 
