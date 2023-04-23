@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Icon from '../Icon/Icon'
 import './alert.css'
 
 function Alert(props) {
@@ -17,9 +18,7 @@ function Alert(props) {
 
   return (
     <div className={isClosed ? 'alert alert--closed' : 'alert'} onClick={closeClick}>
-      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" className="alert__close" onClick={closeClick}>
-        <use xlinkHref="svg/sprite.svg#close" />
-      </svg>
+      <Icon id="close" width="50" height="50" css="alert__close" onClick={closeClick} />
       <div className="alert__content">
         <p className="h3">{message}</p>
       </div>
