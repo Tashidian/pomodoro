@@ -11,6 +11,12 @@ function Alert(props) {
     setIsClosed(false)
   }, [])
 
+  useEffect(() => {
+    if (isClosed) { 
+      setIsClosed(false)
+    }
+  }, [message])
+
   const closeClick = useCallback(() => {
     setIsClosed(true)
     close()
@@ -23,7 +29,7 @@ function Alert(props) {
         <p className="h3">{message}</p>
       </div>
       {sound &&
-        <audio autoPlay={true}>
+        <audio autoPlay={true} key={message}>
           <source src="sound/strange-notification.mp3" type="audio/mpeg" />
           Tu navegador no soporta el elemento de audio.
         </audio>
