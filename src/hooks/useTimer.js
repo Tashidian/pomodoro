@@ -78,7 +78,6 @@ const useTimer = (workMinutes, shortBreakMinutes, longBreakMinutes, pomTimes) =>
     return () => {
       clearInterval(timerInterval)
     }
-  // }, [pomState, clockMinutes, clockSeconds])
   }, [pomState, clockMinutes, clockSeconds, pomHistory, pomTimes, workMinutes, shortBreakMinutes, longBreakMinutes, timerMessage])
 
   return { clockMinutes, clockSeconds, pomState, pomHistory, startPauseTimer, resetTimer, timerMessage }

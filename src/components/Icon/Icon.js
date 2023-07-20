@@ -1,4 +1,3 @@
-// import './button.css'
 
 function Icon(props) {
   const { id, width, height, css = '', onClick = () => {} } = props
