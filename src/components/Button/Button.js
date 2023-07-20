@@ -1,17 +1,18 @@
+import { forwardRef } from "react"
 import './button.css'
 
-function Button(props) {
+const Button = forwardRef(function Button(props, ref) {
   const { type, css, link, onclick, typeAtt, target, children } = props
   return (
     <>
       {(type === 'button') &&
-        <button type={typeAtt} className={'btn ' + css} onClick={onclick}>{children}</button>
+        <button type={typeAtt} className={'btn ' + css} onClick={onclick} ref={ref}>{children}</button>
       }
       {(type === 'link') &&
-        <a href={link} className={'btn ' + css} target={target}>{children}</a>
+        <a href={link} className={'btn ' + css} target={target} ref={ref}>{children}</a>
       }
     </>
   )
-}
+})
 
 export default Button
