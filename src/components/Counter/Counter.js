@@ -30,7 +30,7 @@ function Counter(props) {
 
         <div className="counter__buttons">
           <Button type="button" typeAtt="button" css="btn--primary btn--pomodoro" onclick={startPauseTimer}>
-            <Icon id={(pomState.isPaused || !pomState.isRuning) ? 'play' : 'pause'} width="50" height="50" />
+            <Icon id={(pomState.isPaused || !pomState.isRunning) ? 'play' : 'pause'} width="50" height="50" />
           </Button>
           <Button type="button" typeAtt="button" css="btn--secondary" onclick={resetTimer}>
             <Icon id="stop" width="50" height="50" />
