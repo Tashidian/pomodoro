@@ -40,6 +40,7 @@ const useTimer = (workMinutes, shortBreakMinutes, longBreakMinutes, pomTimes) =>
     setClockSeconds(0)
     setPomState({ isRunning: false, isPaused: false, statusText: 'WORK' })
     setPomHistory([])
+    setTimerMessage(null)
   }, [workMinutes])
 
   useEffect(() => {
