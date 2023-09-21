@@ -74,7 +74,7 @@ const useTimer = (workMinutes, shortBreakMinutes, longBreakMinutes, pomTimes) =>
         } else {
           setClockSeconds(clockSeconds - 1)
         }
-      }, 100)
+      }, 1000)
     }
     return () => {
       clearInterval(timerInterval)
