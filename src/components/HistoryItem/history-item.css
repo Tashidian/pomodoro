@@ -1,0 +1,16 @@
+.history-item {
+  display: block;
+  min-height: 24px;
+  border: 2px solid var(--blackish);
+}
+
+.history-item.history-item--work {
+  background-color: var(--blackish);
+  min-width: 20px;
+}
+.history-item.history-item--short {
+  min-width: 10px;
+}
+.history-item.history-item--long {
+  min-width: 24px;
+}

@@ -1,6 +1,11 @@
 .counter {
   width: 100%;
   text-align: center;
+  margin-bottom: 40px;
+}
+
+.counter:last-child {
+  margin-bottom: 0;
 }
 
 .counter__clock {

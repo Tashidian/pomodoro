@@ -1,14 +1,32 @@
 import useTimer from '../../hooks/useTimer'
 import Alert from '../Alert/Alert'
 import Button from '../Button/Button'
+import History from '../History/History'
+import HistoryList from '../HistoryList/HistoryList'
+import HistoryItem from '../HistoryItem/HistoryItem'
 import Icon from '../Icon/Icon'
 import './counter.css'
+import { useEffect, useState } from 'react'
 
 function Counter(props) {
 
   const { workMinutes, shortBreakMinutes, longBreakMinutes, pomTimes } = props
-  const { clockMinutes, clockSeconds, pomState, startPauseTimer, resetTimer, timerMessage } = useTimer(workMinutes, shortBreakMinutes, longBreakMinutes, pomTimes)
+  const { clockMinutes, clockSeconds, pomState, startPauseTimer, resetTimer, timerMessage, pomHistory } = useTimer(workMinutes, shortBreakMinutes, longBreakMinutes, pomTimes)
 
+  const [sortedHistory, setSortedHistory] = useState([])
+
+  useEffect(() => {
+    setSortedHistory(
+      pomHistory.reduce((acc, item, index) => {
+        if (index % (pomTimes * 2) === 0) {
+          acc.push([item])
+        } else {
+          acc[acc.length - 1].push(item)
+        }
+        return acc
+      }, [])
+    )
+  }, [pomHistory])
 
   return (
     <div className="container">
@@ -37,6 +55,24 @@ function Counter(props) {
           </Button>
         </div>
       </div>
+      
+      {pomHistory.length > 0 &&
+        <History>
+          {sortedHistory.map((pomItem, pomIndex) => {
+            return (
+              <HistoryList key={pomIndex}>
+                {
+                  pomItem.map((item, index) => {
+                    return (
+                      <HistoryItem key={index} type={item === 1 ? 'work' : item === 2 ? 'short' : 'long'}></HistoryItem>
+                    )
+                  })
+                }
+              </HistoryList>
+            )
+          })}
+        </History>
+      }
     </div>
   )
 }

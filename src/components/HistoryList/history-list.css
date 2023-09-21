@@ -1,0 +1,11 @@
+.history-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin: 0 20px 20px 0;
+  padding: 0;
+}
+
+.history-list:last-child {
+  margin-right: 0;
+}
