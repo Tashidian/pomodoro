@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="play" viewBox="0 0 50 50">
+    <path d="M5 5 L45 25 L5 45 Z" fill="#333333" />
+  </symbol>
+  <symbol id="pause" viewBox="0 0 50 50">
+    <rect x="15" y="5" width="8" height="40" fill="#333333"/>
+    <rect x="28" y="5" width="8" height="40" fill="#333333"/>
+  </symbol>
+  <symbol id="stop" viewBox="0 0 50 50">
+    <rect x="5" y="5" width="40" height="40" fill="#FFFF38" />
+  </symbol>
+  <symbol id="close" viewBox="0 0 50 50">
+    <path d="M5 5 L45 45" stroke="#333333" stroke-width="10" />
+    <path d="M45 5 L5 45" stroke="#333333" stroke-width="10" />
+  </symbol>
+</svg>

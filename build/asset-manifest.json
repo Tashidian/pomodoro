@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/pomodoro/static/css/main.dddcc0ab.css",
+    "main.js": "/pomodoro/static/js/main.0b53b383.js",
+    "static/js/787.b1af5461.chunk.js": "/pomodoro/static/js/787.b1af5461.chunk.js",
+    "static/media/Montserrat-SemiBold.ttf": "/pomodoro/static/media/Montserrat-SemiBold.d5e0cc788cba9ced1fb9.ttf",
+    "static/media/Montserrat-Medium.ttf": "/pomodoro/static/media/Montserrat-Medium.c86e3b9010ff63c99166.ttf",
+    "static/media/Montserrat-Bold.ttf": "/pomodoro/static/media/Montserrat-Bold.2c155811b35513d5beaa.ttf",
+    "static/media/Montserrat-Regular.ttf": "/pomodoro/static/media/Montserrat-Regular.ceb11275ab638627a643.ttf",
+    "index.html": "/pomodoro/index.html",
+    "main.dddcc0ab.css.map": "/pomodoro/static/css/main.dddcc0ab.css.map",
+    "main.0b53b383.js.map": "/pomodoro/static/js/main.0b53b383.js.map",
+    "787.b1af5461.chunk.js.map": "/pomodoro/static/js/787.b1af5461.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dddcc0ab.css",
+    "static/js/main.0b53b383.js"
+  ]
+}
